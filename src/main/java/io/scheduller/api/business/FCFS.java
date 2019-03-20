@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Data
@@ -44,7 +45,9 @@ public class FCFS implements Scheduller {
     public void calculatingAverageWaitingTime() {
         AtomicReference<Double> waitingTime = new AtomicReference<>((double) 0);
         this.processList.forEach(p -> {
+            p.setPId((long) Math.abs(new Random().nextInt(2999)));
             p.setWaitTime(waitingTime.get() - p.getArrival());
+            p.setStartTime(waitingTime.get().intValue() - p.getArrival());
             waitingTime.updateAndGet(v -> v + p.getBurstTime() - p.getArrival());
         });
         this.schedullerDTO.setWaitingTime(waitingTime.get() / processList.size());
@@ -52,9 +55,7 @@ public class FCFS implements Scheduller {
 
     @Override
     public SchedullerDTO resolveScheduller() {
-
         return schedullerDTO;
-
     }
 
 

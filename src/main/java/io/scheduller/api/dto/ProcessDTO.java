@@ -18,14 +18,15 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY;
 public class ProcessDTO {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Long pId;
+    private Long pId = 0L;
     private String pName;
-    private Integer deadLine;
-    private Integer priority;
-    private Integer arrival;
-    private Integer startTime;
-    private Integer burstTime;
-    private Integer cpuTime;
+    private Integer deadLine = 0;
+    private Integer priority = 0;
+    private Integer arrival = 0;
+    private Integer startTime = 0;
+    private Integer burstTime = 0;
+    private Integer cpuTime = 0;
+    private Integer overheads = 0;
     private ProcessType type;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Double responseTime;

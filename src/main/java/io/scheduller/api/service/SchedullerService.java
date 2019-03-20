@@ -1,6 +1,7 @@
 package io.scheduller.api.service;
 
 import io.scheduller.api.business.FCFS;
+import io.scheduller.api.business.RoundRobin;
 import io.scheduller.api.business.SJF;
 import io.scheduller.api.dto.SchedullerDTO;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,8 @@ public class SchedullerService {
         }else if (dto.getType().equals(PRIORITY)){
 
         }else if (dto.getType().equals(RR)){
+            var rr = new RoundRobin(dto).resolveScheduller();
+            return rr;
 
         }else if (dto.getType().equals(SJF)){
             var sjf = new SJF(dto).resolveScheduller();
