@@ -25,7 +25,7 @@ public class SchedullerDTO {
     private Integer quantum;
     private Integer overHead;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Double waitingTime;
+    private Double averageWaitingTime;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Double turnaround;
+    private Double averageTurnaround;
 }

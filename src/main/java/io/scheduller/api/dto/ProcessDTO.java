@@ -31,7 +31,7 @@ public class ProcessDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Double responseTime;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Double waitTime;
+    private Double waitTime = null;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Double turnaroundTime;
+    private Double turnaroundTime = 0D;
 }

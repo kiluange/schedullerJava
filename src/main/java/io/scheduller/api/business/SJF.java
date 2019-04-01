@@ -36,7 +36,7 @@ public class SJF implements Scheduller {
             turnaroundTime.updateAndGet(v -> v + p.getBurstTime() + p.getWaitTime());
             p.setTurnaroundTime(p.getBurstTime() + p.getWaitTime());
         });
-        this.schedullerDTO.setTurnaround(turnaroundTime.get() / processList.size());
+        this.schedullerDTO.setAverageTurnaround(turnaroundTime.get() / processList.size());
     }
 
     //executar primeiro
@@ -47,7 +47,7 @@ public class SJF implements Scheduller {
             p.setWaitTime(waitingTime.get() - p.getArrival());
             waitingTime.updateAndGet(v -> v + p.getBurstTime() - p.getArrival());
         });
-        this.schedullerDTO.setWaitingTime(waitingTime.get() / processList.size());
+        this.schedullerDTO.setAverageWaitingTime(waitingTime.get() / processList.size());
     }
 
     @Override
